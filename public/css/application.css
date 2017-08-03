@@ -1,0 +1,17 @@
+#background{
+	text-align: center;
+	background-size: 100% 100%;
+	background-image: url("/img/qwe.jpg");
+	background-repeat: no-repeat;
+	padding: 5% 20% 22%;
+	background-attachment: fixed;
+}
+
+#master{
+	border-width: 5px;
+	border-style: solid;
+	border-color: black;
+	padding-top: 10px;
+	text-align: center;
+	background-color: white;
+}

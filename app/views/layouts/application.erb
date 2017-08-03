@@ -1,14 +1,22 @@
 <html>
 	<head>
 		<title>Quora</title>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script
      	src="http://code.jquery.com/jquery-3.2.1.js"
      	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
      	crossorigin="anonymous">
    		</script>
+   		<link rel="stylesheet" type="text/css" href="/css/application.css">
    		<script src="/js/application.js"></script>
 	</head>
-	<body>
-		<%= yield %>
+	<body>	
+		<div id="background">
+			<div id="master">
+				<div id="gimmick">
+					<%=	yield %>	
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
