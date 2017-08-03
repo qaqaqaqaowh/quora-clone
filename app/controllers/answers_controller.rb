@@ -53,6 +53,8 @@ post "/answers/:answer_id/vote" do
 	@vote_count = @upvote_count - @downvote_count
 	@answer.update(vote_count: @vote_count)
 	@id = @answer.question_id
+	@this = {upvote: @upvote_count}
+	@this.to_json
 	erb :"answers/show"
 end
 

@@ -33,7 +33,7 @@
 	</form>
 	<% end %>
 	<form method="post" action="/answers/<%= x.id %>/vote">
-		<input type="submit" name="vote" value="Upvote: <%= Vote.where(answer_id: x.id, state: true).count %>">
+		<input id="upvote" type="submit" name="vote" value="Upvote: <%= Vote.where(answer_id: x.id, state: true).count %>">
 		<input type="submit" name="vote" value="Downvote: <%= Vote.where(answer_id: x.id, state: false).count %>">
 	</form>
 	<p>--------------------------------------</p>
