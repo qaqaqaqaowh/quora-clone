@@ -1,0 +1,11 @@
+<% if !current_user.nil? %>
+	<h1>Original Answer</h1>
+	<%= (Answer.find(@a_id)).answer %>
+	<form method="post" action="/answers/<%= @a_id %>">
+	<input name="_method" type="hidden" value="patch">
+		<input type="text" name="answer">
+		<input type="submit" value="Update">
+	</form>
+<% else %>
+	<h1>Nope</h1>
+<% end %>

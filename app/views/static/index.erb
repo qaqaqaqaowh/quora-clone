@@ -1,2 +1,17 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+<h1>Home Page~~</h1>
+
+<% if @sign_up %>
+	<h2>Sign Up Successful!!!</h2>
+<% end %>
+
+<% if @signout %>
+	<h2>Sign Out Successful!!!</h2>
+<% end %>
+
+<form action="/sign">
+	<input type="submit" value="Sign Up!!!">
+</form>
+
+<form action="/log">
+	<input type="submit" value="Log In!!!">
+</form>
