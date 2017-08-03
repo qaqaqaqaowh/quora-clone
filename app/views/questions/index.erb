@@ -1,0 +1,23 @@
+<% if !current_user.nil? %>
+	<h1>Questions</h1>
+	<p><%= @saved if @saved %></p>
+	<p>----------------------------------------</p>
+	<form method="get" action="/answers/show">
+		<input type="text" name="id" placeholder="ID of Question">
+		<input type="submit" value="Go!!!">
+	</form>
+	<p>----------------------------------------</p>
+	<% @questions.each do |x| %>
+	<ul>
+		<li>ID: <%= x.id %></li>
+		<li>Question: <%= x.question %></li>
+		<li>By: <%= (User.find(x.user_id)).name %></li>
+	</ul>
+	<p>----------------------------------------</p>
+	<% end %>
+	<form action="/users/<%=current_user.id%>" method="get">
+		<input type="submit" value="My Profile">
+	</form>
+<% else %>
+	<h1>Nope</h1>
+<% end %>

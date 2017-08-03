@@ -1,0 +1,14 @@
+<% if !@login %>
+	<h2>Login Failed!!! Please Try Again.</h2>
+<% end %>
+
+<h2>Login</h2>
+<form method="post" action="/login">
+    <input type=text placeholder="Email" name="user[email]"><br>
+    <input type=password placeholder="Password" name="user[password]"></br>
+    <input type=submit value="Login">
+</form>
+
+<form action="/home">
+	<input type="submit" value="Home Page">
+</form>

@@ -1,0 +1,10 @@
+<% if !current_user.nil? %>
+	<h1>Submit Questions</h1>
+	<form method="post" action="/questions">
+		<input type="text" name="question[question]" placeholder="Input question">
+		<input type="submit" value="Submit">
+	</form>
+<% else %>
+	<h1>Nope</h1>
+<% end %>
+<!-- params ={question:{question:"bhjnk"}} -->
