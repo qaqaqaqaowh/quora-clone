@@ -1,0 +1,13 @@
+<% if !current_user.nil? %>
+	<h1>Type in the information you want to change</h1>
+
+	<form method="post" action="/users/<%=@user.id%>">
+	<input name="_method" type="hidden" value="patch">
+	    <input type=text placeholder="Email" name="user[email]" value="<%=@user.email%>"><br>
+	    <input type="text" placeholder="Name" name="user[name]" value="<%=@user.name%>">
+	    <input type=password placeholder="Password" name="user[password]"></br>
+	    <input type=submit value="Update">
+	</form>
+<% else %>
+	<h1>Nope</h1>
+<% end %>

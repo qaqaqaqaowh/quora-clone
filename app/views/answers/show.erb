@@ -1,0 +1,50 @@
+<% if !current_user.nil? %>
+	<h1>Question</h1>
+	<p><%= @saved if @saved %></p>
+	<% @id ||= params[:id] %>
+	<%= (Question.find(@id)).question %><br>By: 
+	<%= (User.find((Question.find(@id)).user_id)).name %></br>
+	<% author_id = (Question.find(@id)).user_id %>
+	<% if author_id == current_user.id %>
+	<form action="/questions/<%= @id %>/edit">
+		<input type="submit" value="Edit">
+	</form>
+	<form method="post" action="/questions/<%= @id %>">
+	<input name="_method" type="hidden" value="delete">
+		<input type="submit" value="Delete">
+	</form>
+	<% end %>
+	<p>--------------------------------------</p>
+	<h1>Answers</h1>
+	<% answers = Answer.where(question_id: (@id)) %>
+	<% answers = answers.sort_by {|x| x.vote_count} %>
+	<% answers.reverse! %>
+	<% answers.each do |x| %>
+	<p>Vote count: <%= x.vote_count %></p>
+	<%= x.answer %>
+	<br>By: <%= (User.find(x.user_id)).name %></br>
+	<% if (User.find(x.user_id)) == current_user %>
+	<form action="/answers/<%= x.id %>/edit">
+		<input type="submit" value="Edit">
+	</form>
+	<form method="post" action="/answers/<%= x.id %>">
+	<input name="_method" type="hidden" value="delete">
+		<input type="submit" value="Delete">
+	</form>
+	<% end %>
+	<form method="post" action="/answers/<%= x.id %>/vote">
+		<input type="submit" name="vote" value="Upvote: <%= Vote.where(answer_id: x.id, state: true).count %>">
+		<input type="submit" name="vote" value="Downvote: <%= Vote.where(answer_id: x.id, state: false).count %>">
+	</form>
+	<p>--------------------------------------</p>
+	<% end %>
+	<form method="post" action="/questions/<%= @id %>/answers">
+		<input type="text" name="answer" placeholder="Answers?">
+		<input type="submit" value="Submit">
+	</form>
+	<form action="/users/<%=current_user.id%>" method="get">
+		<input type="submit" value="My Profile">
+</form>
+<% else %>
+	<h1>Nope</h1>
+<% end %>
