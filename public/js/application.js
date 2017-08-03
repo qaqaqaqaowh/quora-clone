@@ -14,7 +14,7 @@ $(document).ready(function(){
 	// 		}
 	// 	})
 	// })
-	// console.log("hi")
+	console.log("hi")
 	$("#master").on("mouseenter",function(event){
 		$(this).css({"color": "initial","background-color": "white"});
 	})
