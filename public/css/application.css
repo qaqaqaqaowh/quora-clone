@@ -1,10 +1,10 @@
 #background{
+	height: 100%;
 	text-align: center;
 	background-size: 100% 100%;
 	background-image: url("/img/qwe.jpg");
 	background-repeat: no-repeat;
 	padding: 5% 20% 22%;
-	background-attachment: fixed;
 }
 
 #master{
